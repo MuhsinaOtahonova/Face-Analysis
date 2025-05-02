@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="icon" href="images/favicon.png" type="image/gif" />
+
+  <title>Face Analysis</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
+
+  <!-- lightbox Gallery-->
+  <link rel="stylesheet" href="css/ekko-lightbox.css" />
+
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <!-- header section strats -->
+  <header class="header_section">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a class="navbar-brand" href="index.html">
+          <span>
+            Face Analysis
+          </span>
+        </a>
+        <div class="" id="">
+
+
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- end header section -->
+
+  <!-- slider section -->
+  <section class="slider_section position-relative">
+    <div id="customCarousel1" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="img_container">
+            <div class="img-box">
+              <img src="images/face2.jpeg" style="width: 100%; height: 100%; object-fit: cover;" alt="...">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="detail-box">
+      <div class="col-md-8 col-lg-6 mx-auto">
+        <div class="inner_detail-box">
+          <h1>
+            Face Analysis
+
+          </h1>
+          <p>
+            Detect detailed data for
+            people’s gender, age and emotions
+            and build engaging experiences
+          </p>
+          <div>
+            <a href="" class="slider-link">
+              Try Out
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end slider section -->
+
+  <!-- about section -->
+  <section class="about_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img-box">
+            <div class="profile-picture">
+              <h1 class="upload-icon">
+                <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+              </h1>
+              <input class="file-uploader" type="file" onchange="upload()" accept="image/*" />
+            </div>
+
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                Upload your photo
+              </h2>
+            </div>
+            <p>
+              There are certain common features in human faces that distinguish male faces from female ones.
+              FaceAnalysis uses advanced machine learning techniques to provide you with gender detection.
+            </p>
+
+            <div class="prediction-box">
+              <p class="prediction-label">Age: <span class="prediction-value">25</span></p>
+              <p class="prediction-label">Gender: <span class="prediction-value">Male</span></p>
+              <p class="prediction-label">Nationality: <span class="prediction-value">German</span></p>
+            </div>
+            <style>
+  .prediction-box {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #f0fff0;
+    box-shadow: 0 4px 10px rgba(0, 128, 0, 0.1);
+    max-width: 300px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .prediction-label {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+    font-weight: 600;
+  }
+
+  .prediction-value {
+    color: green;
+    font-weight: bold;
+  }
+</style>
+
+            <a href="">
+              Analyze
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end about section -->
+
+  <style>
+    .profile-picture {
+      opacity: 0.75;
+      height: 500px;
+      width: 500px;
+      position: relative;
+      overflow: hidden;
+
+      /* default image */
+      background: url('https://qph.cf2.quoracdn.net/main-qimg-f32f85d21d59a5540948c3bfbce52e68');
+
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      box-shadow: 0 8px 6px -6px black;
+    }
+
+    .file-uploader {
+      /* make it invisible */
+      opacity: 0;
+      /* make it take the full height and width of the parent container */
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+      /* make it absolute */
+      position: absolute;
+      top: 0%;
+      left: 0%;
+    }
+
+    .upload-icon {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      /* initial icon state */
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      color: #ccc;
+      -webkit-text-stroke-width: 2px;
+      -webkit-text-stroke-color: #bbb;
+    }
+
+    .profile-picture:hover .upload-icon {
+      opacity: 1;
+    }
+  </style>
+
+<script>
+  function upload() {
+    const fileUploadInput = document.querySelector('.file-uploader');
+
+    const image = fileUploadInput.files[0];
+
+    if (!image.type.includes('image')) {
+      alert('Only images are allowed!');
+      return;
+    }
+
+    if (image.size > 10_000_000) {
+      alert('Maximum upload size is 10MB!');
+      return;
+    }
+
+    const fileReader = new FileReader();
+
+    fileReader.readAsDataURL(image);
+
+    fileReader.onload = (fileReaderEvent) => {
+      const profilePicture = document.querySelector('.profile-picture');
+      profilePicture.style.backgroundImage = `url(${fileReaderEvent.target.result})`;
+    };
+  }
+</script>
+
+  <!-- blog section -->
+  <section class="blog_section ">
+    <div class="container-fluid">
+      <div class="heading_container">
+        <h2>
+          Features
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 ">
+          <div class="box">
+            <div class="img-box">
+              <img src="images/age2.webp" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Age estimation
+              </h5>
+              <p>
+                Facial landmarks—like pupil position, eye corners, and lip contours—naturally shift with age. By
+                analyzing these age-related changes, our algorithm, trained on a large and diverse facial dataset, can
+                estimate a person's age with reasonable accuracy.
+
+              </p>
+              <a href="">
+                Read More
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 ">
+          <div class="box">
+            <div class="img-box">
+              <img src="images/yaapay.webp" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Gender estimation
+              </h5>
+              <p>
+                There are certain common features in human faces that distinguish male faces from female ones.
+                FaceAnalysis uses advanced machine learning techniques to provide you with gender detection.
+              </p>
+              <a href="">
+                Read More
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end blog section -->
+
+  <!-- client section -->
+<section class="client_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          How it works
+        </h2>
+      </div>
+      <div id="carouselExample2Controls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-md-11 col-lg-10 mx-auto">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="images/age.webp" alt="" />
+                  </div>
+                  <div class="detail-box">
+
+                    <p>
+                      This allows you to track and respond to human behavior in real time, build engaging customer
+                      experiences and gain deeper insights into the effect of various stimuli on emotions.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="row">
+              <div class="col-md-11 col-lg-10 mx-auto">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="images/face12.jpg" alt="" />
+                  </div>
+                  <div class="detail-box">
+
+                    <p>
+                      FaceAnalysis detects faces in images or video and then uses face tracking and action units to
+                      accurately provide gender, emotions and age for the faces in roughly frontal position.
+
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel_btn-container">
+          <a class="carousel-control-prev" href="#carouselExample2Controls" role="button" data-slide="prev">
+            <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExample2Controls" role="button" data-slide="next">
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- end client section -->
+
+  <!-- contact section -->
+  <section class="contact_section  ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 col-lg-6 ">
+          <div class="form_container">
+            <div class="heading_container ">
+              <h2>
+                Contact Us
+              </h2>
+            </div>
+            <form action="">
+              <div>
+                <input type="text" placeholder="Your Name" />
+              </div>
+              <div>
+                <input type="text" placeholder="Phone Number" />
+              </div>
+              <div>
+                <input type="email" placeholder="Email" />
+              </div>
+              <div>
+                <input type="text" class="message-box" placeholder="Message" />
+              </div>
+              <div class="btn_box">
+                <button>
+                  SEND
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-5 col-lg-6">
+          <div class="subscribe-box">
+            <h3>
+              Subscribe To Our Newsletter
+            </h3>
+            <p>
+              Stay up to date with inspiring case studies, special offers, and market trends.
+              By subscribing, you agree to our Privacy policy.
+            </p>
+            <form action="">
+              <input type="email" placeholder="Enter your email">
+              <button>
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end contact section -->
+
+  <!-- info section -->
+  <section class="info_section ">
+    <div class="container">
+      <div class="row info_main_row">
+        <div class="col-md-6 col-lg-3">
+          <div class="info_insta">
+            <h4>
+              <a href="index.html" class="navbar-brand m-0 p-0">
+                <span>
+                  Face Analysis
+                </span>
+              </a>
+            </h4>
+            <p class="mb-0">
+              Asperiores at, error, delectus aut voluptatem provident cum quam magni necessitatibus molestias eveniet
+              reprehenderit maiores voluptate.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="info_detail">
+            <h4>
+              Company
+            </h4>
+            <p class="mb-0">
+              when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+              distribution of letters, as opposed to
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <h4>
+            Contact Us
+          </h4>
+          <div class="info_contact">
+            <a href="">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>
+                Location
+              </span>
+            </a>
+            <a href="">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>
+                Call +01 1234567890
+              </span>
+            </a>
+            <a href="">
+              <i class="fa fa-envelope"></i>
+              <span>
+                demo@gmail.com
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <h4>
+            Follow Us
+          </h4>
+          <div class="social_box">
+            <a href="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info_section -->
+
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="https://html.design/">Free Html Templates</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+
+  <!-- jQery -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="js/bootstrap.js"></script>
+  <!-- lightbox Gallery-->
+  <script src="js/ekko-lightbox.min.js"></script>
+  <!-- custom js -->
+  <script src="js/custom.js"></script>
+
+</body>
+
+</html>
