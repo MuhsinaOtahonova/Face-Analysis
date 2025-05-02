@@ -165,10 +165,12 @@
   <style>
     .profile-picture {
       opacity: 0.75;
-      height: 500px;
-      width: 500px;
+
       position: relative;
       overflow: hidden;
+      width: 100%;
+  max-width: 500px;        /* Maksimum genişlik */
+  aspect-ratio: 1 / 1;  
 
       /* default image */
       background: url('https://qph.cf2.quoracdn.net/main-qimg-f32f85d21d59a5540948c3bfbce52e68');
